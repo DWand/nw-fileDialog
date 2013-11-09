@@ -52,7 +52,7 @@ app.controller('SomeCtrl', ['$scope', 'fileDialog', function($scope, fileDialog)
 
 ## API
 
-#### function saveAs(callback, defaultFilename, acceptTypes)
+#### fileDialog.saveAs(callback, defaultFilename, acceptTypes)
 
 Opens the "save as" dialog, which allows the user to input a name of the file to be saved.
 
@@ -65,7 +65,7 @@ _**acceptTypes**_ - *string/array* - an array of accepted file types. See
 [HTML5 specification](http://www.w3.org/TR/html-markup/input.file.html#input.file.attrs.accept).
 
 
-#### function openFile(callback, multiple, acceptTypes)
+#### fileDialog.openFile(callback, multiple, acceptTypes)
 
 Opens the "open file" dialog, which allows the user to choose some file.
 
@@ -78,7 +78,7 @@ _**acceptTypes**_ - *string/array* - an array of accepted file types. See
 [HTML5 specification](http://www.w3.org/TR/html-markup/input.file.html#input.file.attrs.accept).
 
 
-#### function openDir (callback)
+#### fileDialog.openDir (callback)
 
 Opens the "open directory" dialog, which allows the user to choose some directory.
 
