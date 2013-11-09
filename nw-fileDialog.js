@@ -22,11 +22,16 @@ angular.module('DWand.nw-fileDialog', [])
     callDialog(dialog, callback);
   };
   
-  dialog.openFile = function(callback, multiple) {
+  dialog.openFile = function(callback, multiple, acceptTypes) {
     var dialog = document.createElement('input');
     dialog.type = 'file';
     if (multiple === true) {
       dialog.multiple = 'multiple';
+    }
+    if (angular.isArray(acceptTypes)) {
+      dialog.accept = acceptTypes.join(',');
+    } else if (angular.isString(acceptTypes)) {
+      dialog.accept = acceptTypes;
     }
     callDialog(dialog, callback);
   };
