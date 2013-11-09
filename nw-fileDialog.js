@@ -10,10 +10,15 @@ angular.module('DWand.nw-fileDialog', [])
 
   var dialog = {};
   
-  dialog.saveAs = function(callback, defaultFilename) {
+  dialog.saveAs = function(callback, defaultFilename, acceptTypes) {
     var dialog = document.createElement('input');
     dialog.type = 'file';
     dialog.nwsaveas = defaultFilename || '';
+    if (angular.isArray(acceptTypes)) {
+      dialog.accept = acceptTypes.join(',');
+    } else if (angular.isString(acceptTypes)) {
+      dialog.accept = acceptTypes;
+    }
     callDialog(dialog, callback);
   };
   
