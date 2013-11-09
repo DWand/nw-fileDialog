@@ -8,9 +8,9 @@ angular.module('DWand.nw-fileDialog', [])
     dialog.click();
   };
 
-  var dialog = {};
+  var dialogs = {};
   
-  dialog.saveAs = function(callback, defaultFilename, acceptTypes) {
+  dialogs.saveAs = function(callback, defaultFilename, acceptTypes) {
     var dialog = document.createElement('input');
     dialog.type = 'file';
     dialog.nwsaveas = defaultFilename || '';
@@ -22,7 +22,7 @@ angular.module('DWand.nw-fileDialog', [])
     callDialog(dialog, callback);
   };
   
-  dialog.openFile = function(callback, multiple, acceptTypes) {
+  dialogs.openFile = function(callback, multiple, acceptTypes) {
     var dialog = document.createElement('input');
     dialog.type = 'file';
     if (multiple === true) {
@@ -36,12 +36,12 @@ angular.module('DWand.nw-fileDialog', [])
     callDialog(dialog, callback);
   };
   
-  dialog.openDir = function(callback) {
+  dialogs.openDir = function(callback) {
     var dialog = document.createElement('input');
     dialog.type = 'file';
     dialog.nwdirectory = 'nwdirectory';
     callDialog(dialog, callback);
   };
   
-  return dialog;
+  return dialogs;
 }]);
