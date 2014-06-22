@@ -20,7 +20,7 @@ angular.module('DWand.nw-fileDialog', [])
     options = options || {};
     acceptTypes = options.acceptTypes || acceptTypes;
     // For backward compatibility
-    if (typeof options is 'string') {
+    if (typeof options == 'string') {
       options = { defaultFilename: options };
     }
 
