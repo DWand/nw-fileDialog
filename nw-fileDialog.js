@@ -16,10 +16,18 @@ angular.module('DWand.nw-fileDialog', [])
 
   var dialogs = {};
   
-  dialogs.saveAs = function(callback, defaultFilename, acceptTypes) {
+  dialogs.saveAs = function(callback, options, acceptTypes) {
+    options = options || {};
+    acceptTypes = options.acceptTypes || acceptTypes;
+    // For backward compatibility
+    if (typeof options is 'string') {
+      options = { defaultFilename: options };
+    }
+
     var dialog = document.createElement('input');
     dialog.type = 'file';
-    dialog.nwsaveas = defaultFilename || '';
+    dialog.nwsaveas = options.defaultFilename || '';
+    dialog.nwworkingdir = options.defaultDirectory || '';
     if (angular.isArray(acceptTypes)) {
       dialog.accept = acceptTypes.join(',');
     } else if (angular.isString(acceptTypes)) {
